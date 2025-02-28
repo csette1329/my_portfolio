@@ -56,7 +56,7 @@ def registrar_compras():
 def mostrar_saldos():
     print("\nSaldos finais:")
     for pessoa, saldo in pessoas.items():
-        print(f"{pessoa}: {saldo}")
+        print(f"{pessoa}: {saldo:.2f}")
 
 def calcular_transacoes():
     credores = [(pessoa, saldo) for pessoa, saldo in pessoas.items() if saldo < 0]
@@ -69,7 +69,7 @@ def calcular_transacoes():
         devedor, valor_a_pagar = devedores.pop(0)
         
         valor_transacao = min(abs(valor_a_receber), valor_a_pagar)
-        transacoes.append(f"{devedor} deve transferir {valor_transacao} para {credor}")
+        transacoes.append(f"{devedor} deve transferir {valor_transacao:.2f} para {credor}")
         
         novo_saldo_credor = valor_a_receber + valor_transacao
         novo_saldo_devedor = valor_a_pagar - valor_transacao
